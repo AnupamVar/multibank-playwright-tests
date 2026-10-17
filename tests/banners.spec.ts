@@ -6,7 +6,13 @@ test('blog article links open the selected articles', async ({ page }) => {
   await page.locator('img').nth(1).click({
     clickCount: 3
   });
-  await page.getByRole('link', { name: 'Glamsterdam: Ethereum\'s' }).click();
+  await Promise.all([
+    page.waitForURL(
+      '**/en-AE/market-updates/glamsterdam-ethereums-biggest-rewrite-since-the-merge',
+    ),
+    page.getByRole('link', { name: 'Glamsterdam: Ethereum\'s' }).click(),
+  ]);
+  await page.waitForLoadState('load');
   await page.goto('https://mb.io/en-AE/blog');
   await page.getByRole('heading', { name: 'Company news' }).click();
   await page.getByRole('link', { name: 'View more' }).first().click();

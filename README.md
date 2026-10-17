@@ -123,10 +123,10 @@ cd multibank-playwright-tests
 npm ci
 ```
 
-### Step 3: Install the Chromium browser
+### Step 3: Install the browsers
 
 ```bash
-npx playwright install chromium
+npx playwright install chromium firefox webkit
 ```
 
 ### Step 4: Execute the test suite
@@ -134,6 +134,8 @@ npx playwright install chromium
 ```bash
 npm test
 ```
+
+The configured browser projects run the suite in Chromium, Firefox, and WebKit. WebKit is Playwright's WebKit engine and should not be described as a test in Apple Safari.
 
 ## 7. Running the Tests
 
@@ -173,7 +175,13 @@ Run only the mobile navigation case:
 npm test -- tests/navigation-desktop.spec.ts --grep "Mobile navigation"
 ```
 
-Open the HTML report:
+Run a single browser project:
+
+```bash
+npm test -- --project=firefox
+```
+
+Open the HTML report after a run:
 
 ```bash
 npm run report
@@ -193,7 +201,7 @@ Tests that navigate using relative URLs use the `BASE_URL` environment variable.
 BASE_URL=https://staging.example.com npm test
 ```
 
-The Playwright configuration runs Chromium with the Desktop Chrome device settings, one worker, list and HTML reporters, screenshots after each test, and traces on the first retry. Mobile viewport checks set their own viewport size within the test.
+The Playwright configuration runs Chromium, Firefox, and WebKit with their desktop device settings, one worker, list and HTML reporters, screenshots after each test, and traces on the first retry. Mobile viewport checks set their own viewport size within the test.
 
 ## 9. Reporting and Debugging
 
@@ -208,8 +216,9 @@ The configured reports and artifacts may include:
 - Browser error information.
 
 Run the report command after a test execution to inspect the generated HTML report.
+The sample cross-browser results and retained screenshots are documented in [docs/cross-browser-test-report.md](docs/cross-browser-test-report.md).
 
-Generated reports and test artifacts should generally be excluded from version control unless explicitly required by the assessment.
+Generated reports and test artifacts should generally be excluded from version control unless explicitly required by the assessment. For an assessment submission, retain the generated HTML report and include a concise execution summary with the run date, browser-wise pass/fail counts, and links to representative evidence.
 
 ## 10. Scope and Safety
 
