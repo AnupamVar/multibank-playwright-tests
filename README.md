@@ -244,4 +244,18 @@ External links should be validated without submitting forms or entering sensitiv
 - Parallel execution and test tagging.
 - Improved trace collection and failure diagnostics.
 
+## My Personal Approach to Software Testing
+
+With 8 years of experience in software testing, I believe quality assurance should start at the requirements stage, not just during test execution. My manual testing approach focuses on understanding business needs, identifying risks early, and exploring beyond the happy path.
+
+- **Early Involvement:** Clarify requirements, identify ambiguities, and define test scenarios from the beginning.
+- **Risk-Based Testing:** Focus on complex business logic, integrations, configurations, and areas that may have limited unit-test coverage.
+- **Quality-Driven Coverage:** Use software quality models such as ISO/IEC 9126 to consider functionality, usability, reliability, and compatibility.
+- **Platform-Specific Testing:** Test web applications across relevant browsers and operating systems, and mobile applications on real devices, including high-end and low-end devices where feasible.
+- **End-to-End Thinking:** Validate complete business workflows, negative scenarios, boundary conditions, and unexpected user behaviour.
+
+My approach always depends on the project's requirements, domain, and risks.
+
+My philosophy: Effective manual testing goes beyond following test cases. It means challenging assumptions, thinking like a user, and finding the defects others might overlook.
+
  THANK YOU
